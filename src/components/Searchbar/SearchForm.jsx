@@ -12,7 +12,6 @@ export const SearchForm = ({ onSubmit }) => {
 
   const handleSubmit = evt => {
     evt.preventDefault();
-
     if (searchQuery.trim() === '') {
       return toast.error('Please write something!');
     }
