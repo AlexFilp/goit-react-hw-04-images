@@ -12,6 +12,7 @@ export const Modal = ({ onClose, largeImg }) => {
   }, []);
 
   const handleKeyDown = e => {
+    console.log(e.code);
     if (e.code === 'Escape') {
       onClose();
     }
