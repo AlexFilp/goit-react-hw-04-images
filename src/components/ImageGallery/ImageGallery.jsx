@@ -43,7 +43,6 @@ export const ImageGallery = ({ query, page, onLoad }) => {
         }
         setShowBtn(true);
         loadItems(data);
-        console.log(items);
 
         if (items.length + data.hits.length >= data.totalHits && page !== 1) {
           toast.warn(`Last ${data.hits.length} images :(`);
@@ -59,6 +58,7 @@ export const ImageGallery = ({ query, page, onLoad }) => {
         return toast.error('Something went wrong :( Please try again.');
       })
       .finally(() => setLoading(false));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query, page]);
 
   const loadItems = newData => {
