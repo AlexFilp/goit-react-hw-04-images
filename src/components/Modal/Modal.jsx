@@ -3,22 +3,24 @@ import css from './Modal.module.css';
 // import * as basicLightbox from 'basiclightbox';
 
 export const Modal = ({ onClose, largeImg }) => {
+  const handleBackdropClick = event => {
+    if (event.target === event.currentTarget) {
+      onClose();
+    }
+  };
+
   useEffect(() => {
-    const handleKeyDown = e => {
-      console.log(e.code);
-      if (e.code === 'Escape') {
-        onClose();
-      }
-    };
     window.addEventListener('keydown', handleKeyDown);
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [onClose]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  const handleBackdropClick = event => {
-    if (event.target === event.currentTarget) {
+  const handleKeyDown = e => {
+    console.log(e.code);
+    if (e.code === 'Escape') {
       onClose();
     }
   };
